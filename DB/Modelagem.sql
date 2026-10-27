@@ -1,16 +1,53 @@
-@startuml
-!theme plain
-skinparam linetype ortho
+drop database if exists tca_gd;
 
-' --- CONFIGURAÇÃO DE ENTIDADES DE BANCO DE DADOS ---
-hide circle
-skinparam roundcorner 0
+create database tca_gd;
 
+\c tca_gd;
 
+create table usuario
+{
+    cpf char(11) not null, 
+	nome varchar(200) not null,
+	nascimento date not null check (nascimento < current_date),
+	genero char(1) not null default 'M' check (genero in ('M', 'F')),
+	primary key (cpf)
+};
 
+create table fornecedor
+{
+    cnpj char(14) not null,
+    nome varchar(200) not null
+};
 
-' --- RELACIONAMENTOS (PÉ DE GALINHA PURO) ---
+create table natureza
+{
+    nome varchar(200),
+    codigo integer not null,
+    primary key(codigo)
+};
 
+create table tipo
+{
+    nome varchar(200) not null,
+    codigo integer not null,
+    primary key (codigo)
+};
 
+CREATE TABLE investimento
+{
+    codigo integer not null,
+    fornecedor char(14) not null,
+    nome varchar(200),
+    rendimento integer,
+    valor,
+    foreign key (fornecedor) references fornecedor(cnpj),
+    primary key (codigo)
+};
 
-@enduml
+create table investimento_usuario
+{
+    usuario char(11) not null,
+    investimento integer not null,
+    quantidade integer,
+    valor 
+};
