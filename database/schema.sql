@@ -40,7 +40,8 @@ create table contato_usuario
     constraint fk_contato_usuario_usuario foreign key (usuario)
         references usuario(cpf) on delete cascade,
     constraint fk_contato_usuario_tipo foreign key (tipo)
-        references tipo_contato(codigo)
+        references tipo_contato(codigo),
+    constraint uq_contato_usuario unique (tipo, contato)
 );
 
 create table contato_fornecedor
@@ -53,7 +54,8 @@ create table contato_fornecedor
     constraint fk_contato_fornecedor_fornecedor foreign key (fornecedor)
         references fornecedor(cnpj) on delete cascade,
     constraint fk_contato_fornecedor_tipo foreign key (tipo)
-        references tipo_contato(codigo)
+        references tipo_contato(codigo),
+    constraint uq_contato_fornecedor unique (tipo, contato)
 );
 
 create table tipo_investimento
