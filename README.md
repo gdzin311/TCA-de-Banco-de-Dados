@@ -12,13 +12,10 @@ Este trabalho consiste na simulação do site de uma agencia de investimentos
 
 ## Instalação
 
-instruções
 
 ## Como Usar
 
 ## Como contribuir 
-
-## Licença
 
 ## Sobre o Autor
 
