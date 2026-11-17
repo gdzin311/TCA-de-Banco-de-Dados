@@ -1,0 +1,284 @@
+
+/* ---------- Cores e fontes (mude aqui e o site inteiro muda) ---------- */
+:root {
+  --fundo: #F4F6F8;
+  --tinta: #16233A;
+  --texto-suave: #55627A;
+  --destaque: #1F7A6B;
+  --destaque-escuro: #175F53;
+  --erro: #B3412E;
+  --borda: #C9D1DC;
+ 
+  --fonte-titulo: 'Fraunces', Georgia, serif;
+  --fonte-texto: 'Public Sans', system-ui, sans-serif;
+}
+ 
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  color: var(--tinta);
+  background: var(--fundo);
+  line-height: 1.5;
+}
+ 
+h1, h2 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+ 
+a {
+  color: var(--destaque-escuro);
+}
+ 
+/* ---------- Tela de acesso (login e cadastro) ---------- */
+.acesso {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* duas colunas de mesmo tamanho */
+}
+ 
+.acesso-destaque {
+  background: var(--tinta);
+  color: #FFFFFF;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+ 
+.acesso-destaque h1 {
+  font-size: 2.5rem;
+  max-width: 14ch;
+}
+ 
+.acesso-destaque p {
+  margin: 0;
+  max-width: 36ch;
+  color: #B8C2D3;
+}
+ 
+.acesso-destaque .marca {
+  color: #FFFFFF;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+ 
+.acesso-form {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+ 
+.acesso-form h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+ 
+/* ---------- Formulário ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+}
+ 
+label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+ 
+input,
+select {
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: var(--tinta);
+}
+ 
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 2px;
+}
+ 
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--destaque);
+  color: #FFFFFF;
+  cursor: pointer;
+}
+ 
+button:hover {
+  background: var(--destaque-escuro);
+}
+ 
+.dica {
+  margin: -0.5rem 0 1rem;
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+}
+ 
+.erro {
+  margin: 0 0 1rem;
+  color: var(--erro);
+  font-weight: 500;
+}
+ 
+.troca {
+  margin-top: 1.5rem;
+  color: var(--texto-suave);
+}
+ 
+/* ---------- Celular: uma coluna só ---------- */
+@media (max-width: 800px) {
+  .acesso {
+    grid-template-columns: 1fr;
+  }
+ 
+  .acesso-destaque,
+  .acesso-form {
+    padding: 2rem 1.5rem;
+  }
+ 
+  .acesso-destaque h1 {
+    font-size: 1.9rem;
+  }
+}
+ 
+/* ---------- Área do usuário ---------- */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--tinta);
+  color: #FFFFFF;
+}
+ 
+.topo .marca {
+  margin: 0;
+  font-weight: 600;
+}
+ 
+.topo a {
+  color: #FFFFFF;
+}
+ 
+.conteudo {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+ 
+.conteudo h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+ 
+.subtitulo {
+  margin: 0 0 2.5rem;
+  color: var(--texto-suave);
+}
+ 
+.painel-duplo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+ 
+.bloco h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+ 
+/* lista de "rótulo ... valor" (dados pessoais e contatos) */
+.lista-dados {
+  margin: 0;
+}
+ 
+.lista-dados div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+ 
+.lista-dados dt {
+  color: var(--texto-suave);
+}
+ 
+.lista-dados dd {
+  margin: 0;
+  font-weight: 500;
+  text-align: right;
+}
+ 
+/* tabela da carteira */
+.tabela-rolagem {
+  overflow-x: auto; /* no celular, a tabela rola para o lado em vez de estourar a tela */
+}
+ 
+table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+}
+ 
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+ 
+th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+ 
+th.num,
+td.num {
+  text-align: right;
+}
+ 
+.situacao-ativo {
+  color: var(--destaque-escuro);
+  font-weight: 600;
+}
+ 
+.situacao-encerrado {
+  color: var(--texto-suave);
+}
+ 
+@media (max-width: 800px) {
+  .topo {
+    padding: 1rem 1.5rem;
+  }
+ 
+  .painel-duplo {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+ 

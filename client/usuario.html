@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha carteira | Agência de Investimentos</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/estilo.css">
+</head>
+<body>
+ 
+  <!-- Os dados abaixo são de exemplo (os mesmos da Maria no seed.sql).
+       Depois, o JavaScript vai trocar por os dados reais vindos do banco. -->
+ 
+  <header class="topo">
+    <p class="marca">Agência de Investimentos</p>
+    <a href="index.html">Sair</a>
+  </header>
+ 
+  <main class="conteudo">
+    <h1>Olá, Maria</h1>
+    <p class="subtitulo">Estes são os seus dados e os investimentos que você tem.</p>
+ 
+    <div class="painel-duplo">
+ 
+      <section class="bloco">
+        <h2>Dados pessoais</h2>
+        <dl class="lista-dados">
+          <div><dt>Nome</dt><dd>Maria Silva</dd></div>
+          <div><dt>CPF</dt><dd>111.111.111-11</dd></div>
+          <div><dt>Nascimento</dt><dd>10/03/1995</dd></div>
+          <div><dt>Gênero</dt><dd>Feminino</dd></div>
+        </dl>
+      </section>
+ 
+      <section class="bloco">
+        <h2>Contatos</h2>
+        <dl class="lista-dados">
+          <div><dt>E-mail</dt><dd>maria@email.com</dd></div>
+          <div><dt>E-mail</dt><dd>maria.trabalho@email.com</dd></div>
+          <div><dt>Telefone</dt><dd>(53) 99999-0001</dd></div>
+        </dl>
+      </section>
+ 
+    </div>
+ 
+    <section class="bloco">
+      <h2>Minha carteira</h2>
+ 
+      <div class="tabela-rolagem">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Investimento</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Fornecedor</th>
+              <th scope="col" class="num">Rendimento</th>
+              <th scope="col" class="num">Aplicação</th>
+              <th scope="col">Início</th>
+              <th scope="col">Situação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CDB Alfa 110% CDI</td>
+              <td>Renda Fixa</td>
+              <td>Banco Alfa S.A.</td>
+              <td class="num">11,50%</td>
+              <td class="num">R$ 5.000,00</td>
+              <td>10/02/2025</td>
+              <td class="situacao-ativo">Ativo</td>
+            </tr>
+            <tr>
+              <td>Petro Exemplo (PETX3)</td>
+              <td>Ações</td>
+              <td>Corretora Beta</td>
+              <td class="num">8,00%</td>
+              <td class="num">100 unidades</td>
+              <td>03/06/2025</td>
+              <td class="situacao-ativo">Ativo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+ 
+</body>
+</html>
+ 
