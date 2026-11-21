@@ -20,7 +20,7 @@ insert into contato_fornecedor (fornecedor, tipo, contato) values
 ('22333444000172', (select codigo from tipo_contato where nome = 'Email'), 'atendimento@corretorabeta.com'),
 ('33444555000163', (select codigo from tipo_contato where nome = 'Email'), 'ri@gestoragama.com');
 
--- investimentos (rendimento em % ao ano, valor unitário)
+-- investimentos (rendimento em %, valor de referência do produto)
 insert into investimento (tipo, fornecedor, nome, rendimento, valor) values
 ((select codigo from tipo_investimento where nome = 'Renda Fixa'),
  '11222333000181', 'CDB Alfa 110% CDI', 11.50, 1000.00),
@@ -44,13 +44,12 @@ insert into contato_usuario (usuario, tipo, contato) values
 ('22222222222', (select codigo from tipo_contato where nome = 'Email'), 'joao@email.com'),
 ('33333333333', (select codigo from tipo_contato where nome = 'Email'), 'ana@email.com');
 
--- carteiras (valor = total pago na compra = quantidade x valor unitário da época)
+-- carteiras
+-- renda fixa: preenche valor (quanto foi investido) e deixa quantidade nula
+-- ações e FIIs: preenche quantidade e deixa valor nulo
 insert into investimento_usuario (usuario, investimento, quantidade, valor, data_inicio, data_fim) values
--- renda fixa: valor investido
 ('11111111111', (select codigo from investimento where nome = 'CDB Alfa 110% CDI'),     null, 5000.00, '2025-02-10', null),
--- ações e FIIs: quantidade
 ('11111111111', (select codigo from investimento where nome = 'Petro Exemplo (PETX3)'), 100,  null,    '2025-06-03', null),
 ('22222222222', (select codigo from investimento where nome = 'FII Shopping Exemplo'),  10,   null,    '2025-04-15', null),
--- renda fixa encerrada
 ('22222222222', (select codigo from investimento where nome = 'Tesouro Selic 2029'),    null, 300.00,  '2024-09-01', '2025-09-01'),
 ('33333333333', (select codigo from investimento where nome = 'CDB Alfa 110% CDI'),     null, 3000.00, '2025-08-20', null);
