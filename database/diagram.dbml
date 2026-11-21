@@ -1,0 +1,76 @@
+Table usuario {
+  cpf char(11) [pk, note: 'Somente 11 dígitos numéricos (regex: ^[0-9]{11}$)']
+  nome varchar(200) [not null]
+  senha_hash varchar(200) [not null]
+  nascimento date [not null, note: 'CHECK: nascimento >= 1900-01-01']
+  genero varchar(20) [not null, note: 'CHECK: Masculino, Feminino, Outro, Prefiro não informar']
+}
+
+Table fornecedor {
+  cnpj char(14) [pk, note: 'Somente 14 dígitos numéricos (regex: ^[0-9]{14}$)']
+  nome varchar(200) [not null]
+}
+
+Table tipo_contato {
+  codigo integer [pk, increment]
+  nome varchar(200) [not null, unique]
+}
+
+Table contato_usuario {
+  codigo integer [pk, increment]
+  usuario char(11) [not null]
+  tipo integer [not null]
+  contato varchar(200) [not null]
+
+  indexes {
+    (tipo, contato) [unique, name: 'uq_contato_usuario']
+  }
+}
+
+Table contato_fornecedor {
+  codigo integer [pk, increment]
+  fornecedor char(14) [not null]
+  tipo integer [not null]
+  contato varchar(200) [not null]
+
+  indexes {
+    (tipo, contato) [unique, name: 'uq_contato_fornecedor']
+  }
+}
+
+Table tipo_investimento {
+  codigo integer [pk, increment]
+  nome varchar(200) [not null, unique]
+}
+
+Table investimento {
+  codigo integer [pk, increment]
+  tipo integer [not null]
+  fornecedor char(14) [not null]
+  nome varchar(200) [not null]
+  rendimento numeric(5,2) [not null, note: 'CHECK: rendimento >= 0']
+  valor numeric(12,2) [not null, note: 'CHECK: valor > 0']
+}
+
+Table investimento_usuario {
+  codigo integer [pk, increment]
+  usuario char(11) [not null]
+  investimento integer [not null]
+  quantidade numeric(15,4) [note: 'CHECK: quantidade > 0. Exatamente um entre quantidade e valor deve ser nulo']
+  valor numeric(12,2) [note: 'CHECK: valor > 0. Exatamente um entre quantidade e valor deve ser nulo']
+  data_inicio date [not null, default: `current_date`]
+  data_fim date [note: 'CHECK: data_fim é nulo ou >= data_inicio']
+}
+
+// Relacionamentos
+Ref fk_contato_usuario_usuario: contato_usuario.usuario > usuario.cpf [delete: cascade]
+Ref fk_contato_usuario_tipo: contato_usuario.tipo > tipo_contato.codigo
+
+Ref fk_contato_fornecedor_fornecedor: contato_fornecedor.fornecedor > fornecedor.cnpj [delete: cascade]
+Ref fk_contato_fornecedor_tipo: contato_fornecedor.tipo > tipo_contato.codigo
+
+Ref fk_investimento_tipo: investimento.tipo > tipo_investimento.codigo
+Ref fk_investimento_fornecedor: investimento.fornecedor > fornecedor.cnpj
+
+Ref fk_inv_usuario_usuario: investimento_usuario.usuario > usuario.cpf
+Ref fk_inv_usuario_investimento: investimento_usuario.investimento > investimento.codigo
