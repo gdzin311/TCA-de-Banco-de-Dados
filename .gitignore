@@ -1,3 +1,2 @@
-#pasta de lembretes e teste do gitignore
 node_modules/
 .env
