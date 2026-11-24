@@ -1,0 +1,120 @@
+/* [arquivo] usuario.css: layout da área do usuário (topo, dados, contatos e carteira). */
+
+/* ---------- Área do usuário ---------- */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--tinta);
+  color: #FFFFFF;
+}
+
+.topo .marca {
+  margin: 0;
+  font-weight: 600;
+}
+
+.topo a {
+  color: #FFFFFF;
+}
+
+.conteudo {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.conteudo h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.subtitulo {
+  margin: 0 0 2.5rem;
+  color: var(--texto-suave);
+}
+
+.painel-duplo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.bloco h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* lista de "rótulo ... valor" (dados pessoais e contatos) */
+.lista-dados {
+  margin: 0;
+}
+
+.lista-dados div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+.lista-dados dt {
+  color: var(--texto-suave);
+}
+
+.lista-dados dd {
+  margin: 0;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* tabela da carteira */
+.tabela-rolagem {
+  overflow-x: auto; /* no celular, a tabela rola para o lado em vez de estourar a tela */
+}
+
+table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 0.75rem 0.75rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+th.num,
+td.num {
+  text-align: right;
+}
+
+.situacao-ativo {
+  color: var(--destaque-escuro);
+  font-weight: 600;
+}
+
+.situacao-encerrado {
+  color: var(--texto-suave);
+}
+
+@media (max-width: 800px) {
+  .topo {
+    padding: 1rem 1.5rem;
+  }
+
+  .painel-duplo {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,39 @@
+/* [arquivo] base.css: variáveis (cores e fontes), reset e estilos dos elementos básicos. Carregue SEMPRE primeiro. */
+
+/* ---------- Cores e fontes (mude aqui e o site inteiro muda) ---------- */
+:root {
+  --fundo: #F4F6F8;
+  --tinta: #16233A;
+  --texto-suave: #55627A;
+  --destaque: #1F7A6B;
+  --destaque-escuro: #175F53;
+  --erro: #B3412E;
+  --borda: #C9D1DC;
+
+  --fonte-titulo: 'Fraunces', Georgia, serif;
+  --fonte-texto: 'Public Sans', system-ui, sans-serif;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  color: var(--tinta);
+  background: var(--fundo);
+  line-height: 1.5;
+}
+
+h1, h2 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+a {
+  color: var(--destaque-escuro);
+}

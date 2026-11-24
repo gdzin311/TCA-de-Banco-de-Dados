@@ -1,0 +1,71 @@
+/* [arquivo] acesso.css: layout das telas de login e cadastro. */
+
+/* ---------- Tela de acesso (login e cadastro) ---------- */
+.acesso {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* duas colunas de mesmo tamanho */
+}
+
+.acesso-destaque {
+  background: var(--tinta);
+  color: #FFFFFF;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.acesso-destaque h1 {
+  font-size: 2.5rem;
+  max-width: 14ch;
+}
+
+.acesso-destaque p {
+  margin: 0;
+  max-width: 36ch;
+  color: #B8C2D3;
+}
+
+.acesso-destaque .marca {
+  color: #FFFFFF;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.acesso-form {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.acesso-form h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.troca {
+  margin-top: 1.5rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- Celular: uma coluna só ---------- */
+@media (max-width: 800px) {
+  .acesso {
+    grid-template-columns: 1fr;
+  }
+
+  .acesso-destaque,
+  .acesso-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .acesso-destaque h1 {
+    font-size: 1.9rem;
+  }
+}
