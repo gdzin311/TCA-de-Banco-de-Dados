@@ -1,4 +1,4 @@
-# TCA de Banco de Dados: Agência de Investimentos
+# TCA de Banco de Dados: Ea-Nāṣir Investimentos
  
 Trabalho conclusório da disciplina de Banco de Dados. Simulação do site de uma agência de investimentos, em que o cliente se cadastra, entra com CPF e senha e acompanha seus dados, contatos e a carteira de investimentos (renda fixa, ações, fundos imobiliários), com informações vindas do banco.
  
@@ -19,7 +19,7 @@ Trabalho conclusório da disciplina de Banco de Dados. Simulação do site de um
 │   ├── index.html          login
 │   ├── cadastro.html       cadastro de usuário
 │   ├── usuario.html        área do usuário (dados, contatos e carteira)
-│   ├── style/estilo.css
+│   ├── style/              base.css, formulario.css, acesso.css, usuario.css
 │   └── script/             login.js, cadastro.js, usuario.js
 ├── server/                 back-end
 │   ├── app.js              rotas da API e entrega do front-end
@@ -224,5 +224,5 @@ order by investimento_usuario.data_inicio desc;
 - O login é feito apenas por CPF e senha.
 ## Autor
  
-Desenvolvido por [gdzin311](https://github.com/gdzin311) para a disciplina de Banco de Dados.
+Desenvolvido por Artur Guadalupe Duarte Pereira (https://github.com/gdzin311) para a disciplina de Banco de Dados.
  
