@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Pool, types } = require('pg');
 
-types.setTypeParser(1082, (valor) => valor);//evita convbersão de fuso
+types.setTypeParser(1082, (valor) => valor);//evita conversão de fuso
 
 
 const pool = new Pool(
